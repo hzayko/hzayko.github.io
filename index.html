@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Henry Zayko - E-Portfolio</title>
+    <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="animated-background.css">
+</head>
+<body>
+
+  <div class="animated-background"></div>
+
+  <!-- Your existing content goes here -->
+  <div class="content-overlay">
+
+    <!-- Rest of your content -->
+  </div>
+
+    <header>
+        <h1>Henry Zayko | Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id='about'>
+        <h2>About Me</h2>
+        <p>Hello! I'm Henry, a Computer Science Master's student at the University of North Carolina Wilmington with a passion for artificial intelligence, data analytics, and blockchain technologies to name a few. I graduated from the University of Michigan with a Bachelor's degree in Computer Science. My career goal is to use the technologies I'm passionate about to help advance society and build a future that's safer, more accessible, more equitable, and overall better for everyone.</p>
+    </section>
+
+    <section id='skills'>
+        <h2>Skills</h2>
+        <h3>Technical Skills</h3>
+        <ul>
+            <li>Programming Languages: C++, Python, Java, and others </li>
+            <li>Web Development: HTML, CSS, Javascript</li>
+            <li>Database Management: SQL, relational databases, MySQL</li>
+            <li>Version Control: Github</li>
+        </ul>
+        <div class="skills-container">
+            <div class="skill">
+                <h3>C++</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="90%"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="80%"></div>
+                    </div>
+            </div>
+            <div class="skill">
+                <h3>SQL</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="70%"></div>
+                    </div>
+            </div>
+        </div>
+        <h3>Soft Skills</h3>
+        <ul>
+            <li>Team Collaboration - SDLC</li>
+            <li>Problem-Solving</li>
+            <li>Communication</li>
+            <li>Time Management</li>
+        </ul>
+    </section>
+
+
+
+
+    <section id='contact'>
+        <h2>Contact Information</h2>
+        <p>Email: hzayko@umich.edu</p>
+        <p>LinkedIn: https://www.linkedin.com/in/henry-zayko-08a10520b/</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Henry Zayko. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // Your JavaScript code here
+    document.addEventListener('DOMContentLoaded', function() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+
+    function animateSkillBars() {
+        skillBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            bar.style.width = progress;
+        });
+    }
+
+  // Use Intersection Observer to trigger animation when skills are in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            animateSkillBars();
+            observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('.skills-container'));
+    });
+    </script>
+
+
+
+</body>
+</html>
